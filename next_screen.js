@@ -3,23 +3,24 @@
 
 var currentScene;
 
-var drawButton = function() {
+var drawStartButton = function() {
     fill(81, 166, 31);
-    rect(340, 10, 50, 25);
+    rect(width/2, height/2, 50, 25);
     fill(255, 255, 255);
     textSize(16);
-    text("NEXT", 344, 29);
+    text("START", width/2, height/2+20);
 };
 
+// Game Start
 var drawScene1 = function() {
     currentScene = 1;
-
     background(235, 247, 255);
     fill(0, 85, 255);
     textSize(39);
-    text("The Story of Winston", 10, height/2);
+    text("안경알을 찾아주세요", 10, height/2);
 };
 
+// Game Page
 var drawScene2 = function() {
     currentScene = 2;
     background(173, 239, 255);
@@ -28,8 +29,16 @@ var drawScene2 = function() {
     text("Lil Winston is born!", 10, 100);
     //image(loadImage("creatures/BabyWinston.png"), width/2, height/2);
     image(BabyWinston, width/2, height/2);
+
+    // TODO: 위치 랜덤화 -> 마우스 클릭
+    // 투명도
+    // https://p5js.org/ko/examples/image-transparency.html
+    tint(255, 127); // 이미지를 투명도 50%로 보이게하기
+    image(Winston, width/2, height/2);
 };
 
+// TODO: 성공 페이지와 실패 페이지 나누기
+// Game End & restart (원래 게임 화면 위에 중첩)
 var drawScene3 = function() {
     currentScene = 3;
     background(173, 239, 255);
@@ -101,7 +110,7 @@ function setup() {
     BabyWinston = loadImage('https://cdn-icons-png.flaticon.com/512/1656/1656373.png'); // 이미지 불러오기
 
     drawScene1();
-    drawButton();
+    drawStartButton();
 }
 
 function draw() {
@@ -112,7 +121,8 @@ function draw() {
 };
 
 mouseClicked = function() {
-    if (mouseX >= 340 && mouseY <= 45) {
+    // Need to modify
+    if (mouseX >= width/2 && mouseY <= height/2) {
         if (currentScene === 1) {
             drawScene2();
         } else if (currentScene === 2) {
