@@ -16,6 +16,14 @@ var drawStartButton = function() {
     text("START", width/2+2, height*3/4+5);
 };
 
+var drawReStartButton = function() {
+    fill(121, 180, 183);
+    rect(width/2, height*3/4, 70, 40);
+    fill(255, 255, 255);
+    textSize(16);
+    text("Again", width/2+2, height*3/4+5);
+};
+
 // Game Start
 var drawScene1 = function() {
     currentScene = 1;
@@ -29,7 +37,7 @@ var drawScene1 = function() {
 var drawScene2 = function() {
     currentScene = 2;
     background(255, 255, 255);
-    image(Room, width/2, height/2);
+    image(Room, 0, 0);
 
     // TODO: 위치 랜덤화 -> 마우스 클릭
     // 투명도
@@ -45,8 +53,6 @@ var drawScene3 = function() {
     fill(157, 157, 157);
     textSize(39);
     text("Success", width/2, height/2);
-    textSize(30);
-    text("Again?", width/2, height*3/4);
 };
 
 function setup() {
@@ -55,8 +61,6 @@ function setup() {
     rectMode(CENTER);
     textAlign(CENTER);
 
-    Winston = loadImage('https://cdn-icons.flaticon.com/png/512/2002/premium/2002616.png?token=exp=1635088800~hmac=7222f823276d2fd1c84d0c574aa81025'); // 이미지 불러오기
-    BabyWinston = loadImage('https://cdn-icons-png.flaticon.com/512/1656/1656373.png'); // 이미지 불러오기
     Room = loadImage('https://github.com/BY1994/Hidden_Pictures_Game/blob/main/images/sample_room.png');
     Glasses = loadImage('https://github.com/BY1994/Hidden_Pictures_Game/blob/main/images/glasses.png');
     //btn = loadImage("https://toppng.com/uploads/preview/start-button-concept-game-start-button-11563520127pwcsff95og.png")
@@ -79,6 +83,7 @@ mouseClicked = function() {
             drawScene2();
         } else if (currentScene === 2) {
             drawScene3();
+            drawReStartButton();
         } else if (currentScene === 3) {
             drawScene2();
         }
