@@ -5,7 +5,7 @@
 // p5 rect center
 //https://discourse.processing.org/t/why-the-rectmode-center-doesnt-work-for-me/31009/7
 
-var currentScene;
+var currentScene = 1;
 let startbtn;
 let randx;
 let randy;
@@ -29,10 +29,12 @@ var drawReStartButton = function() {
 // Game Start
 var drawScene1 = function() {
     currentScene = 1;
-    background(201, 204, 213);
+    background(Character);
+    //background(201, 204, 213);
     fill(157, 157, 157);
     textSize(39);
     text("안경알을 찾아주세요", width/2, height/2);
+    //image(Character, 0, 0, 50, 50);
 };
 
 // Game Page
@@ -42,7 +44,6 @@ var drawScene2 = function() {
     tint(255, 255);
     image(Room, 0, 0, 500, 500);
 
-    // TODO: 위치 랜덤화 -> 마우스 클릭
     // 투명도
     // https://p5js.org/ko/examples/image-transparency.html
     tint(255, 127); // 이미지를 투명도 50%로 보이게하기
@@ -69,17 +70,18 @@ function setup() {
     // for local test
     //Room = loadImage('https://cdn-icons.flaticon.com/png/512/2002/premium/2002616.png?token=exp=1635088800~hmac=7222f823276d2fd1c84d0c574aa81025'); // 이미지 불러오기
     //Glasses = loadImage('https://cdn-icons-png.flaticon.com/512/1656/1656373.png'); // 이미지 불러오기
+    //Character = loadImage('https://cdn-icons-png.flaticon.com/512/1995/1995595.png');
 
     Room = loadImage('images/sample_room.png');
     Glasses = loadImage('images/glasses.png');
-
-    Glasses.resize(10,10);
-    Room.resize(500,500);
-    drawScene1();
-    drawStartButton();
+    Character = loadImage('images/character.png');
 }
 
 function draw() {
+    if (currentScene == 1) {
+        drawScene1();
+        drawStartButton();
+    }
 };
 
 mouseClicked = function() {
@@ -97,7 +99,7 @@ mouseClicked = function() {
     } else if (currentScene === 3) {
         if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
             mouseY >= height*3/4-15 && mouseY <= height*3/4+15) {
-            drawScene2();
+                drawScene2();
         }
     }
 };
