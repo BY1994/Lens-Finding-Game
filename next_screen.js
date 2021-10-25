@@ -11,7 +11,6 @@ let startbtn;
 var drawStartButton = function() {
     fill(121, 180, 183);
     rect(width/2, height*3/4, 70, 40);
-    //rectMode(CENTER);
     fill(255, 255, 255);
     textSize(16);
     text("START", width/2+2, height*3/4+5);
@@ -24,21 +23,19 @@ var drawScene1 = function() {
     fill(157, 157, 157);
     textSize(39);
     text("안경알을 찾아주세요", width/2, height/2);
-    //image(BabyWinston, width/2, height/2);
-    //startbtn.display();
 };
 
 // Game Page
 var drawScene2 = function() {
     currentScene = 2;
     background(255, 255, 255);
-    image(BabyWinston, width/2, height/2);
+    image(Room, width/2, height/2);
 
     // TODO: 위치 랜덤화 -> 마우스 클릭
     // 투명도
     // https://p5js.org/ko/examples/image-transparency.html
     tint(255, 127); // 이미지를 투명도 50%로 보이게하기
-    image(Winston, width/2, height/2);
+    image(Glasses, width/2, height/2);
 };
 
 // Game End & restart (원래 게임 화면 위에 중첩)
@@ -54,15 +51,19 @@ var drawScene3 = function() {
 
 function setup() {
     createCanvas(500, 500);
-    //background(102);
+
     rectMode(CENTER);
     textAlign(CENTER);
 
     Winston = loadImage('https://cdn-icons.flaticon.com/png/512/2002/premium/2002616.png?token=exp=1635088800~hmac=7222f823276d2fd1c84d0c574aa81025'); // 이미지 불러오기
     BabyWinston = loadImage('https://cdn-icons-png.flaticon.com/512/1656/1656373.png'); // 이미지 불러오기
+    Room = loadImage('https://github.com/BY1994/Hidden_Pictures_Game/blob/main/images/sample_room.png');
+    Glasses = loadImage('https://github.com/BY1994/Hidden_Pictures_Game/blob/main/images/glasses.png');
     //btn = loadImage("https://toppng.com/uploads/preview/start-button-concept-game-start-button-11563520127pwcsff95og.png")
     //startbtn = new Button(10, 10, Winston);
 
+    Glasses.resize(10,10);
+    Room.resize(500,500);
     drawScene1();
     drawStartButton();
 }
