@@ -70,8 +70,8 @@ function setup() {
     //Room = loadImage('https://cdn-icons.flaticon.com/png/512/2002/premium/2002616.png?token=exp=1635088800~hmac=7222f823276d2fd1c84d0c574aa81025'); // 이미지 불러오기
     //Glasses = loadImage('https://cdn-icons-png.flaticon.com/512/1656/1656373.png'); // 이미지 불러오기
 
-    Room = loadImage('https://github.com/BY1994/Hidden_Pictures_Game/blob/main/images/sample_room.png');
-    Glasses = loadImage('https://github.com/BY1994/Hidden_Pictures_Game/blob/main/images/glasses.png');
+    Room = loadImage('images/sample_room.png');
+    Glasses = loadImage('images/glasses.png');
 
     Glasses.resize(10,10);
     Room.resize(500,500);
