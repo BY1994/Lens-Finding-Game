@@ -7,6 +7,8 @@
 
 var currentScene;
 let startbtn;
+let randx;
+let randy;
 
 var drawStartButton = function() {
     fill(121, 180, 183);
@@ -37,13 +39,16 @@ var drawScene1 = function() {
 var drawScene2 = function() {
     currentScene = 2;
     background(255, 255, 255);
-    image(Room, 0, 0);
+    tint(255, 255);
+    image(Room, 0, 0, 500, 500);
 
     // TODO: 위치 랜덤화 -> 마우스 클릭
     // 투명도
     // https://p5js.org/ko/examples/image-transparency.html
     tint(255, 127); // 이미지를 투명도 50%로 보이게하기
-    image(Glasses, width/2, height/2);
+    randx = random(width);
+    randy = random(height);
+    image(Glasses, randx, randy, 20, 20);
 };
 
 // Game End & restart (원래 게임 화면 위에 중첩)
@@ -61,10 +66,12 @@ function setup() {
     rectMode(CENTER);
     textAlign(CENTER);
 
+    // for local test
+    //Room = loadImage('https://cdn-icons.flaticon.com/png/512/2002/premium/2002616.png?token=exp=1635088800~hmac=7222f823276d2fd1c84d0c574aa81025'); // 이미지 불러오기
+    //Glasses = loadImage('https://cdn-icons-png.flaticon.com/512/1656/1656373.png'); // 이미지 불러오기
+
     Room = loadImage('https://github.com/BY1994/Hidden_Pictures_Game/blob/main/images/sample_room.png');
     Glasses = loadImage('https://github.com/BY1994/Hidden_Pictures_Game/blob/main/images/glasses.png');
-    //btn = loadImage("https://toppng.com/uploads/preview/start-button-concept-game-start-button-11563520127pwcsff95og.png")
-    //startbtn = new Button(10, 10, Winston);
 
     Glasses.resize(10,10);
     Room.resize(500,500);
@@ -76,15 +83,20 @@ function draw() {
 };
 
 mouseClicked = function() {
-    // Need to modify
-    if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
-        mouseY >= height*3/4-15 && mouseY <= height*3/4+15) {
-        if (currentScene === 1) {
-            drawScene2();
-        } else if (currentScene === 2) {
-            drawScene3();
-            drawReStartButton();
-        } else if (currentScene === 3) {
+    if (currentScene == 1) {
+        if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
+            mouseY >= height*3/4-15 && mouseY <= height*3/4+15) {
+                drawScene2();
+        } 
+    } else if (currentScene == 2) {
+        if (mouseX >= randx && mouseX <= randx+20 &&
+            mouseY >= randy && mouseY <= randy+20) {
+                drawScene3();
+                drawReStartButton();
+        }
+    } else if (currentScene === 3) {
+        if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
+            mouseY >= height*3/4-15 && mouseY <= height*3/4+15) {
             drawScene2();
         }
     }
