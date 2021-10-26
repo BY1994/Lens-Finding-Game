@@ -49,9 +49,8 @@ var drawScene2 = function() {
     // 투명도
     // https://p5js.org/ko/examples/image-transparency.html
     tint(255, 127); // 이미지를 투명도 50%로 보이게하기
-    randx = random(width);
-    randy = random(height);
-    image(Glasses, randx, randy, 20, 20);
+
+    image(Glasses, randx, randy, 15, 15);
 };
 
 // Game End & restart (원래 게임 화면 위에 중첩)
@@ -83,6 +82,11 @@ function draw() {
     if (currentScene == 1) {
         drawScene1();
         drawStartButton();
+    } else if (currentScene == 2) {
+        drawScene2();
+    } else if (currentScene == 3) {
+        drawScene3();
+        drawReStartButton();
     }
 };
 
@@ -90,18 +94,21 @@ mouseClicked = function() {
     if (currentScene == 1) {
         if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
             mouseY >= height*3/4-15 && mouseY <= height*3/4+15) {
-                drawScene2();
+                randx = random(width-15);
+                randy = random(height-15);
+                currentScene = 2;
         } 
     } else if (currentScene == 2) {
-        if (mouseX >= randx && mouseX <= randx+20 &&
-            mouseY >= randy && mouseY <= randy+20) {
-                drawScene3();
-                drawReStartButton();
+        if (mouseX >= randx && mouseX <= randx+15 &&
+            mouseY >= randy && mouseY <= randy+15) {
+                currentScene = 3;
         }
     } else if (currentScene === 3) {
         if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
             mouseY >= height*3/4-15 && mouseY <= height*3/4+15) {
-                drawScene2();
+                randx = random(width-15);
+                randy = random(height-15);
+                currentScene = 2;
         }
     }
 };
@@ -110,18 +117,21 @@ touchStarted = function() {
     if (currentScene == 1) {
         if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
             mouseY >= height*3/4-15 && mouseY <= height*3/4+15) {
-                drawScene2();
+                randx = random(width-15);
+                randy = random(height-15);
+                currentScene = 2;
         } 
     } else if (currentScene == 2) {
         if (mouseX >= randx && mouseX <= randx+20 &&
             mouseY >= randy && mouseY <= randy+20) {
-                drawScene3();
-                drawReStartButton();
+                currentScene = 3;
         }
     } else if (currentScene === 3) {
         if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
             mouseY >= height*3/4-15 && mouseY <= height*3/4+15) {
-                drawScene2();
+                randx = random(width-15);
+                randy = random(height-15);
+                currentScene = 2;
         }
     }
 };
