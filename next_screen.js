@@ -8,11 +8,16 @@
 // https://editor.p5js.org/itsai0724/sketches/B1xmLvw6G
 // 모바일에서 p5 클릭시
 // https://stackoverflow.com/questions/66245111/how-to-make-a-button-work-when-touched-using-p5-code
+    // 투명도
+    // https://p5js.org/ko/examples/image-transparency.html
+
 
 var currentScene = 1;
 let startbtn;
 let randx;
 let randy;
+var fade;
+var fadeAmount = 1;
 
 var drawStartButton = function() {
     fill(121, 180, 183);
@@ -34,9 +39,6 @@ var drawReStartButton = function() {
 var drawScene1 = function() {
     currentScene = 1;
     background(StartPage);
-    fill(157, 157, 157);
-    textSize(39);
-    text("안경알을 찾아주세요", width/2, height/2);
 };
 
 // Game Page
@@ -45,9 +47,6 @@ var drawScene2 = function() {
     background(255, 255, 255);
     tint(255, 255);
     image(Room, 0, 0, 500, 500);
-
-    // 투명도
-    // https://p5js.org/ko/examples/image-transparency.html
     tint(255, 127); // 이미지를 투명도 50%로 보이게하기
     image(Glasses, randx, randy, 15, 15);
 };
@@ -55,12 +54,10 @@ var drawScene2 = function() {
 // Game End & restart (원래 게임 화면 위에 중첩)
 var drawScene3 = function() {
     currentScene = 3;
-    tint(255, 255);
+    tint(255, fade);
     image(EndPage, width/2-200, height/2-200, 400, 400);
-    //background(201, 204, 213);
-    //fill(157, 157, 157);
-    //textSize(39);
-    //text("Success", width/2, height/2);
+
+    if (fade < 255) fade += fadeAmount;
 };
 
 function setup() {
@@ -93,29 +90,6 @@ function draw() {
     }
 };
 
-mouseClicked = function() {
-    if (currentScene == 1) {
-        if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
-            mouseY >= height*3/4-15 && mouseY <= height*3/4+15) {
-                randx = random(width-15);
-                randy = random(height-15);
-                currentScene = 2;
-        } 
-    } else if (currentScene == 2) {
-        if (mouseX >= randx && mouseX <= randx+15 &&
-            mouseY >= randy && mouseY <= randy+15) {
-                currentScene = 3;
-        }
-    } else if (currentScene === 3) {
-        if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
-            mouseY >= height*3/4-15 && mouseY <= height*3/4+15) {
-                randx = random(width-15);
-                randy = random(height-15);
-                currentScene = 2;
-        }
-    }
-};
-
 touchStarted = function() {
     if (currentScene == 1) {
         if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
@@ -127,6 +101,7 @@ touchStarted = function() {
     } else if (currentScene == 2) {
         if (mouseX >= randx && mouseX <= randx+20 &&
             mouseY >= randy && mouseY <= randy+20) {
+                fade = 0;
                 currentScene = 3;
         }
     } else if (currentScene === 3) {
