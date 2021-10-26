@@ -6,6 +6,8 @@
 //https://discourse.processing.org/t/why-the-rectmode-center-doesnt-work-for-me/31009/7
 // 화면 전환 예시
 // https://editor.p5js.org/itsai0724/sketches/B1xmLvw6G
+// 모바일에서 p5 클릭시
+// https://stackoverflow.com/questions/66245111/how-to-make-a-button-work-when-touched-using-p5-code
 
 var currentScene = 1;
 let startbtn;
@@ -25,18 +27,16 @@ var drawReStartButton = function() {
     rect(width/2, height*3/4, 70, 40);
     fill(255, 255, 255);
     textSize(16);
-    text("Again", width/2+2, height*3/4+5);
+    text("AGAIN", width/2+2, height*3/4+5);
 };
 
 // Game Start
 var drawScene1 = function() {
     currentScene = 1;
-    background(Character);
-    //background(201, 204, 213);
+    background(StartPage);
     fill(157, 157, 157);
     textSize(39);
     text("안경알을 찾아주세요", width/2, height/2);
-    //image(Character, 0, 0, 50, 50);
 };
 
 // Game Page
@@ -49,17 +49,18 @@ var drawScene2 = function() {
     // 투명도
     // https://p5js.org/ko/examples/image-transparency.html
     tint(255, 127); // 이미지를 투명도 50%로 보이게하기
-
     image(Glasses, randx, randy, 15, 15);
 };
 
 // Game End & restart (원래 게임 화면 위에 중첩)
 var drawScene3 = function() {
     currentScene = 3;
-    background(201, 204, 213);
-    fill(157, 157, 157);
-    textSize(39);
-    text("Success", width/2, height/2);
+    tint(255, 255);
+    image(EndPage, width/2-200, height/2-200, 400, 400);
+    //background(201, 204, 213);
+    //fill(157, 157, 157);
+    //textSize(39);
+    //text("Success", width/2, height/2);
 };
 
 function setup() {
@@ -69,13 +70,15 @@ function setup() {
     textAlign(CENTER);
 
     // for local test
-    //Room = loadImage('https://cdn-icons.flaticon.com/png/512/2002/premium/2002616.png?token=exp=1635088800~hmac=7222f823276d2fd1c84d0c574aa81025'); // 이미지 불러오기
-    //Glasses = loadImage('https://cdn-icons-png.flaticon.com/512/1656/1656373.png'); // 이미지 불러오기
-    //Character = loadImage('https://cdn-icons-png.flaticon.com/512/1995/1995595.png');
+    //Room = loadImage('https://cdn-icons.flaticon.com/png/512/2002/premium/2002616.png?token=exp=1635088800~hmac=7222f823276d2fd1c84d0c574aa81025');
+    //Glasses = loadImage('https://cdn-icons-png.flaticon.com/512/1656/1656373.png');
+    //StartPage = loadImage('https://cdn-icons-png.flaticon.com/512/1995/1995595.png');
+    //EndPage = loadImage('https://cdn-icons-png.flaticon.com/512/1995/1995595.png');
 
     Room = loadImage('images/sample_room.png');
     Glasses = loadImage('images/glasses.png');
-    Character = loadImage('images/carpenter.png');
+    StartPage = loadImage('images/start_page.png');
+    EndPage = loadImage('images/end_page.png');
 }
 
 function draw() {
