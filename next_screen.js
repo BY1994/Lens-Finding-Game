@@ -4,6 +4,8 @@
 // https://colorhunt.co/palette/79b4b7fefbf3f8f0df9d9d9d
 // p5 rect center
 //https://discourse.processing.org/t/why-the-rectmode-center-doesnt-work-for-me/31009/7
+// 화면 전환 예시
+// https://editor.p5js.org/itsai0724/sketches/B1xmLvw6G
 
 var currentScene = 1;
 let startbtn;
@@ -74,7 +76,7 @@ function setup() {
 
     Room = loadImage('images/sample_room.png');
     Glasses = loadImage('images/glasses.png');
-    Character = loadImage('images/character.png');
+    Character = loadImage('images/carpenter.png');
 }
 
 function draw() {
