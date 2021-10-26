@@ -105,3 +105,23 @@ mouseClicked = function() {
         }
     }
 };
+
+touchStarted = function() {
+    if (currentScene == 1) {
+        if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
+            mouseY >= height*3/4-15 && mouseY <= height*3/4+15) {
+                drawScene2();
+        } 
+    } else if (currentScene == 2) {
+        if (mouseX >= randx && mouseX <= randx+20 &&
+            mouseY >= randy && mouseY <= randy+20) {
+                drawScene3();
+                drawReStartButton();
+        }
+    } else if (currentScene === 3) {
+        if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
+            mouseY >= height*3/4-15 && mouseY <= height*3/4+15) {
+                drawScene2();
+        }
+    }
+};
