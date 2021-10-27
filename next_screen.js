@@ -10,14 +10,15 @@
 // https://stackoverflow.com/questions/66245111/how-to-make-a-button-work-when-touched-using-p5-code
     // 투명도
     // https://p5js.org/ko/examples/image-transparency.html
-
+// fade in effect
+// https://editor.p5js.org/remarkability/sketches/rtM08miUD
 
 var currentScene = 1;
 let startbtn;
 let randx;
 let randy;
 var fade;
-var fadeAmount = 1;
+var fadeAmount = 10;
 
 var drawStartButton = function() {
     fill(121, 180, 183);
