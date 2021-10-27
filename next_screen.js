@@ -18,7 +18,7 @@ let startbtn;
 let randx;
 let randy;
 var fade;
-var fadeAmount = 10;
+var fadeAmount = 30;
 
 var drawStartButton = function() {
     fill(121, 180, 183);
@@ -73,7 +73,7 @@ function setup() {
     //StartPage = loadImage('https://cdn-icons-png.flaticon.com/512/1995/1995595.png');
     //EndPage = loadImage('https://cdn-icons-png.flaticon.com/512/1995/1995595.png');
 
-    Room = loadImage('images/sample_room.png');
+    Room = loadImage('images/room.png');
     Glasses = loadImage('images/glasses.png');
     StartPage = loadImage('images/start_page.png');
     EndPage = loadImage('images/end_page.png');
