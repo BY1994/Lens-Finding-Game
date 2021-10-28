@@ -54,7 +54,7 @@ var drawScene2 = function() {
     tint(255, 255);
     image(Room, 0, 0, backgroundx, backgroundy);
     tint(255, 127); // 이미지를 투명도 50%로 보이게하기
-    image(Glasses, randx, randy, 13, 13);
+    image(Glasses, randx, randy, 15, 15);
 };
 
 // Game End & restart (원래 게임 화면 위에 중첩)
