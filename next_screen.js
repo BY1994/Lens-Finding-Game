@@ -19,6 +19,8 @@ let randx;
 let randy;
 var fade;
 var fadeAmount = 60;
+var backgroundx = 1196;
+var backgroundy = 771;
 
 var drawStartButton = function() {
     fill(121, 180, 183);
@@ -47,7 +49,7 @@ var drawScene2 = function() {
     currentScene = 2;
     background(255, 255, 255);
     tint(255, 255);
-    image(Room, 0, 0, 500, 500);
+    image(Room, 0, 0, backgroundx, backgroundy);
     tint(255, 127); // 이미지를 투명도 50%로 보이게하기
     image(Glasses, randx, randy, 10, 10);
 };
@@ -62,7 +64,7 @@ var drawScene3 = function() {
 };
 
 function setup() {
-    createCanvas(3590, 2313);
+    createCanvas(backgroundx, backgroundy);
 
     rectMode(CENTER);
     textAlign(CENTER);
