@@ -19,8 +19,8 @@ let randx;
 let randy;
 var fade;
 var fadeAmount = 60;
-var backgroundx = 598;
-var backgroundy = 385;
+var backgroundx = 800;
+var backgroundy = 514;
 
 var drawStartButton = function() {
     fill(121, 180, 183);
@@ -102,8 +102,8 @@ touchStarted = function() {
                 currentScene = 2;
         } 
     } else if (currentScene == 2) {
-        if (mouseX >= randx && mouseX <= randx+10 &&
-            mouseY >= randy && mouseY <= randy+10) {
+        if (mouseX >= randx && mouseX <= randx+15 &&
+            mouseY >= randy && mouseY <= randy+15) {
                 fade = 0;
                 currentScene = 3;
         }
