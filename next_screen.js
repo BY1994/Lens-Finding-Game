@@ -18,7 +18,7 @@ let startbtn;
 let randx;
 let randy;
 var fade;
-var fadeAmount = 30;
+var fadeAmount = 60;
 
 var drawStartButton = function() {
     fill(121, 180, 183);
