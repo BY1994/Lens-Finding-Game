@@ -19,8 +19,8 @@ let randx;
 let randy;
 var fade;
 var fadeAmount = 60;
-var backgroundx = 1196;
-var backgroundy = 771;
+var backgroundx = 598;
+var backgroundy = 385;
 
 var drawStartButton = function() {
     fill(121, 180, 183);
@@ -51,7 +51,7 @@ var drawScene2 = function() {
     tint(255, 255);
     image(Room, 0, 0, backgroundx, backgroundy);
     tint(255, 127); // 이미지를 투명도 50%로 보이게하기
-    image(Glasses, randx, randy, 10, 10);
+    image(Glasses, randx, randy, 13, 13);
 };
 
 // Game End & restart (원래 게임 화면 위에 중첩)
