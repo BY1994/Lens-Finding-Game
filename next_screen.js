@@ -12,6 +12,8 @@
     // https://p5js.org/ko/examples/image-transparency.html
 // fade in effect
 // https://editor.p5js.org/remarkability/sketches/rtM08miUD
+// mouse hover effect example
+// https://editor.p5js.org/kjhollen/sketches/S1Jxxt-HW
 
 var currentScene = 1;
 let startbtn;
@@ -21,21 +23,22 @@ var fade;
 var fadeAmount = 60;
 var backgroundx = 800;
 var backgroundy = 514;
+var btnwidth = 70;
+var btnheight = 40;
 
-var drawStartButton = function() {
-    fill(121, 180, 183);
-    rect(width/2, height*3/4, 70, 40);
+var drawButton = function(msg) {
+    if ((mouseX > width/2 - btnwidth/2) &&
+        (mouseX < width/2 + btnwidth/2) &&
+        (mouseY > height*3/4 - btnwidth/2) &&
+        (mouseY < height*3/4 + btnwidth/2)) {
+        fill(206, 229, 208);
+    } else {
+        fill(121, 180, 183);
+    }
+    rect(width/2, height*3/4, btnwidth, btnheight);
     fill(255, 255, 255);
     textSize(16);
-    text("START", width/2+2, height*3/4+5);
-};
-
-var drawReStartButton = function() {
-    fill(121, 180, 183);
-    rect(width/2, height*3/4, 70, 40);
-    fill(255, 255, 255);
-    textSize(16);
-    text("AGAIN", width/2+2, height*3/4+5);
+    text(msg, width/2+2, height*3/4+5);
 };
 
 // Game Start
@@ -84,12 +87,12 @@ function setup() {
 function draw() {
     if (currentScene == 1) {
         drawScene1();
-        drawStartButton();
+        drawButton("START");
     } else if (currentScene == 2) {
         drawScene2();
     } else if (currentScene == 3) {
         drawScene3();
-        drawReStartButton();
+        drawButton("AGAIN");
     }
 };
 
