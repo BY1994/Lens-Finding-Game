@@ -49,7 +49,7 @@ var drawScene2 = function() {
     tint(255, 255);
     image(Room, 0, 0, 500, 500);
     tint(255, 127); // 이미지를 투명도 50%로 보이게하기
-    image(Glasses, randx, randy, 15, 15);
+    image(Glasses, randx, randy, 10, 10);
 };
 
 // Game End & restart (원래 게임 화면 위에 중첩)
@@ -62,7 +62,7 @@ var drawScene3 = function() {
 };
 
 function setup() {
-    createCanvas(500, 500);
+    createCanvas(3590, 2313);
 
     rectMode(CENTER);
     textAlign(CENTER);
@@ -100,8 +100,8 @@ touchStarted = function() {
                 currentScene = 2;
         } 
     } else if (currentScene == 2) {
-        if (mouseX >= randx && mouseX <= randx+20 &&
-            mouseY >= randy && mouseY <= randy+20) {
+        if (mouseX >= randx && mouseX <= randx+10 &&
+            mouseY >= randy && mouseY <= randy+10) {
                 fade = 0;
                 currentScene = 3;
         }
