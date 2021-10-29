@@ -25,6 +25,8 @@
 // https://bgmfactory.com/
 // "Uncaught not ready to play file, buffer has yet to load. Try preload()"
 // https://stackoverflow.com/questions/53768703/p5-js-preload-issue
+// volume 조절
+// https://github.com/processing/p5.js-sound/issues/182
 
 var currentScene = 1;
 let startbtn;
@@ -128,15 +130,15 @@ function touchStarted() {
                 currentScene = 2;
                 //userStartAudio();
                 //getAudioContext().resume();
-                Music.loop(0, 1, 0.5);
-                btnSound.play(0, 1, 0.5);
+                Music.loop(0, 1, 0.1);
+                btnSound.play(0, 1, 0.1);
         } 
     } else if (currentScene == 2) {
         if (mouseX >= randx && mouseX <= randx+15 &&
             mouseY >= randy && mouseY <= randy+15) {
                 fade = 0;
                 currentScene = 3;
-                correctSound.play(0, 1, 0.5);
+                correctSound.play(0, 1, 0.1);
         }
     } else if (currentScene === 3) {
         if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
@@ -144,7 +146,7 @@ function touchStarted() {
                 randx = random(width-15);
                 randy = random(height-15);
                 currentScene = 2;
-                btnSound.play(0, 1, 0.5);
+                btnSound.play(0, 1, 0.1);
         }
     }
 };

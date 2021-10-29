@@ -1,0 +1,24 @@
+{
+    "name": "finding-game",
+    "version": "1.0.0",
+    "description": "Hidden Pictures Game",
+    "main": "main.js",
+    "author": "BY1994",
+    "icon": "assets/icon.ico",
+    "devDependencies": {
+        "electron": "15.3.0"
+    },
+    "build": {
+        "win": {
+          "icon": "assets/icon.ico"
+        },
+        "mac": {
+            "target": ["default"],
+            "icon": "assets/icon.icns"
+        },
+        "dmg": {
+            "title": "FindingGame",
+            "icon": "assets/icon.icns"
+        }
+    }
+}
