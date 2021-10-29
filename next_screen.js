@@ -94,7 +94,7 @@ function preload(){
     //soundFormats('mp3', 'ogg');
     Music = loadSound('assets/background_music.mp3');
     btnSound = loadSound('assets/button_sound.wav');
-    correctSound = loadSound('assets/correct_sound.wav');
+    correctSound = loadSound('assets/correct_sound.mp3');
 }
 
 function setup() {
@@ -128,15 +128,15 @@ function touchStarted() {
                 currentScene = 2;
                 //userStartAudio();
                 //getAudioContext().resume();
-                Music.play();
-                btnSound.play();
+                Music.loop(0, 1, 0.5);
+                btnSound.play(0, 1, 0.5);
         } 
     } else if (currentScene == 2) {
         if (mouseX >= randx && mouseX <= randx+15 &&
             mouseY >= randy && mouseY <= randy+15) {
                 fade = 0;
                 currentScene = 3;
-                correctSound.play();
+                correctSound.play(0, 1, 0.5);
         }
     } else if (currentScene === 3) {
         if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
@@ -144,7 +144,7 @@ function touchStarted() {
                 randx = random(width-15);
                 randy = random(height-15);
                 currentScene = 2;
-                btnSound.play();
+                btnSound.play(0, 1, 0.5);
         }
     }
 };
