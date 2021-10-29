@@ -23,6 +23,8 @@
 // https://stackoverflow.com/questions/59549893/how-to-play-sounds-in-p5-js
 // 배경음악
 // https://bgmfactory.com/
+// "Uncaught not ready to play file, buffer has yet to load. Try preload()"
+// https://stackoverflow.com/questions/53768703/p5-js-preload-issue
 
 var currentScene = 1;
 let startbtn;
@@ -35,6 +37,8 @@ var backgroundy = 514;
 var btnwidth = 70;
 var btnheight = 40;
 var Music;
+var btnSound;
+var correctSound;
 
 var drawButton = function(msg) {
     if ((mouseX > width/2 - btnwidth/2) &&
@@ -89,6 +93,8 @@ function preload(){
     EndPage = loadImage('assets/end_page.png');
     //soundFormats('mp3', 'ogg');
     Music = loadSound('assets/background_music.mp3');
+    btnSound = loadSound('assets/button_sound.wav');
+    correctSound = loadSound('assets/correct_sound.wav');
 }
 
 function setup() {
@@ -123,12 +129,14 @@ function touchStarted() {
                 //userStartAudio();
                 //getAudioContext().resume();
                 Music.play();
+                btnSound.play();
         } 
     } else if (currentScene == 2) {
         if (mouseX >= randx && mouseX <= randx+15 &&
             mouseY >= randy && mouseY <= randy+15) {
                 fade = 0;
                 currentScene = 3;
+                correctSound.play();
         }
     } else if (currentScene === 3) {
         if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
@@ -136,6 +144,7 @@ function touchStarted() {
                 randx = random(width-15);
                 randy = random(height-15);
                 currentScene = 2;
+                btnSound.play();
         }
     }
 };
