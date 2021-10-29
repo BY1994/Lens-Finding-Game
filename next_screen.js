@@ -14,6 +14,15 @@
 // https://editor.p5js.org/remarkability/sketches/rtM08miUD
 // mouse hover effect example
 // https://editor.p5js.org/kjhollen/sketches/S1Jxxt-HW
+// sound play 강의
+// https://www.youtube.com/watch?v=o0toEEP3_y0
+// The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page
+// https://blog.naver.com/NBlogTop.naver?isHttpsRedirect=true&blogId=brane7&Redirect=Dlog&Qs=/brane7/221268154247
+// https://p5js.org/ko/reference/#/p5/userStartAudio
+// chrome security disable
+// https://stackoverflow.com/questions/59549893/how-to-play-sounds-in-p5-js
+// 배경음악
+// https://bgmfactory.com/
 
 var currentScene = 1;
 let startbtn;
@@ -25,6 +34,7 @@ var backgroundx = 800;
 var backgroundy = 514;
 var btnwidth = 70;
 var btnheight = 40;
+var Music;
 
 var drawButton = function(msg) {
     if ((mouseX > width/2 - btnwidth/2) &&
@@ -66,22 +76,29 @@ var drawScene3 = function() {
     if (fade < 255) fade += fadeAmount;
 };
 
-function setup() {
-    createCanvas(backgroundx, backgroundy);
-
-    rectMode(CENTER);
-    textAlign(CENTER);
-
+function preload(){
     // for local test
-    //Room = loadImage('https://cdn-icons.flaticon.com/png/512/2002/premium/2002616.png?token=exp=1635088800~hmac=7222f823276d2fd1c84d0c574aa81025');
+    //Room = loadImage('https://cdn-icons-png.flaticon.com/512/1995/1995595.png');
     //Glasses = loadImage('https://cdn-icons-png.flaticon.com/512/1656/1656373.png');
     //StartPage = loadImage('https://cdn-icons-png.flaticon.com/512/1995/1995595.png');
     //EndPage = loadImage('https://cdn-icons-png.flaticon.com/512/1995/1995595.png');
 
-    Room = loadImage('images/room.png');
-    Glasses = loadImage('images/glasses.png');
-    StartPage = loadImage('images/start_page.png');
-    EndPage = loadImage('images/end_page.png');
+    Room = loadImage('assets/room.png');
+    Glasses = loadImage('assets/glasses.png');
+    StartPage = loadImage('assets/start_page.png');
+    EndPage = loadImage('assets/end_page.png');
+    //soundFormats('mp3', 'ogg');
+    Music = loadSound('assets/background_music.mp3');
+}
+
+function setup() {
+    // mimics the autoplay policy
+    //getAudioContext().suspend();
+    //MonoSynth();
+    createCanvas(backgroundx, backgroundy);
+
+    rectMode(CENTER);
+    textAlign(CENTER);
 }
 
 function draw() {
@@ -96,13 +113,16 @@ function draw() {
     }
 };
 
-touchStarted = function() {
+function touchStarted() {
     if (currentScene == 1) {
         if (mouseX >= width/2-35 && mouseX <= width/2+35 &&
             mouseY >= height*3/4-15 && mouseY <= height*3/4+15) {
                 randx = random(width-15);
                 randy = random(height-15);
                 currentScene = 2;
+                //userStartAudio();
+                //getAudioContext().resume();
+                Music.play();
         } 
     } else if (currentScene == 2) {
         if (mouseX >= randx && mouseX <= randx+15 &&
