@@ -1,10 +1,10 @@
 # Finding Game
 
-### 게임 소개
+## 게임 소개
 
 - 본 게임은 잃어버린 안경알을 찾는 게임입니다.
-- Github.io 에서 플레이 가능합니다. 혹은 아래의 빌드 방법을 이용하여 window 용 혹은 mac 용으로 빌드하여 플레이 가능합니다.
-- 개발 로그
+- [Github.io](https://by1994.github.io/Lens-Finding-Game/) 에서 플레이 가능합니다. 혹은 아래의 빌드 방법을 이용하여 window 용 혹은 mac 용으로 빌드하여 플레이 가능합니다.
+- [개발 로그](https://computer-choco.tistory.com/474)
 
 
 
@@ -12,7 +12,7 @@
 
 
 
-### 빌드 정보 (Electron.js)
+## 빌드 정보 (Electron.js)
 
 1. node.js 설치 및 환경 변수 설정
 
@@ -106,7 +106,7 @@ mac os 용이 필요한 경우 `electrong builder build -m` 을 하면 되는데
 
 
 
-### 저작권 정보
+## 저작권 정보
 
 1. 배경 음악
 
@@ -123,7 +123,7 @@ mac os 용이 필요한 경우 `electrong builder build -m` 을 하면 되는데
 
 3. 게임 배경에 사용된 isometric 이미지 출처
 
-   - [freepik modern-woodworking-machinery-isometric-set](https://www.freepik.com/free-vector/modern-woodworking-machinery-isometric-set_4358888.htm#page=1&position=2&from_view=detail#query=machine isometric&position=2&from_view=detail#position=2)
+   - [freepik modern-woodworking-machinery-isometric-set](https://www.freepik.com/free-vector/modern-woodworking-machinery-isometric-set_4358888.htm#page=1&position=2&from_view=detail#query=machine%20isometric&position=2&from_view=detail#position=2)
 
    - [freepik industrial-machinery-flowchart-with-bending-machine-symbols-isometric](https://www.freepik.com/free-vector/industrial-machinery-flowchart-with-bending-machine-symbols-isometric_6839982.htm#page=1&position=5&from_view=detail#&position=5&from_view=detail)
    - [freepik furniture-production-isometric-colored-flowchart-with-design-assembly](https://www.freepik.com/free-vector/furniture-production-isometric-colored-flowchart-with-design-assembly_16608143.htm#page=1&position=5&from_view=detail#&position=5&from_view=detail)
